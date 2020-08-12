@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Calc
 {
-    public partial class Form1 : Form
+    public partial class BackGround : Form
     {
-        public Form1()
+        public BackGround()
         {
             InitializeComponent();
+        }
+
+        private void BackGround_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
