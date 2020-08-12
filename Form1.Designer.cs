@@ -34,7 +34,7 @@
             this.Byproduction2 = new System.Windows.Forms.Label();
             this.Pclac = new System.Windows.Forms.Panel();
             this.ByProduction = new System.Windows.Forms.Label();
-            this.Ptimer.SuspendLayout();
+            this.Timer.SuspendLayout();
             this.Pclac.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             // 
             // Timer
             // 
+            this.Timer.Controls.Add(this.Byproduction2);
             this.Timer.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Timer.ForeColor = System.Drawing.Color.Black;
             this.Timer.Location = new System.Drawing.Point(661, 36);
@@ -63,7 +64,6 @@
             // 
             // Ptimer
             // 
-            this.Ptimer.Controls.Add(this.Byproduction2);
             this.Ptimer.Location = new System.Drawing.Point(661, 36);
             this.Ptimer.Name = "Ptimer";
             this.Ptimer.Size = new System.Drawing.Size(503, 594);
@@ -72,7 +72,8 @@
             // Byproduction2
             // 
             this.Byproduction2.AutoSize = true;
-            this.Byproduction2.Location = new System.Drawing.Point(370, 572);
+            this.Byproduction2.ForeColor = System.Drawing.Color.Black;
+            this.Byproduction2.Location = new System.Drawing.Point(367, 578);
             this.Byproduction2.Name = "Byproduction2";
             this.Byproduction2.Size = new System.Drawing.Size(127, 19);
             this.Byproduction2.TabIndex = 6;
@@ -113,8 +114,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "뒤틀린 황천의 계산타이머";
             this.Load += new System.EventHandler(this.BackGround_Load);
-            this.Ptimer.ResumeLayout(false);
-            this.Ptimer.PerformLayout();
+            this.Timer.ResumeLayout(false);
+            this.Timer.PerformLayout();
             this.Pclac.ResumeLayout(false);
             this.Pclac.PerformLayout();
             this.ResumeLayout(false);
