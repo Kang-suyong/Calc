@@ -8,3 +8,13 @@ C:\Users\user\source\repos\Calc\obj\Debug\Calc.csproj.GenerateResource.cache
 C:\Users\user\source\repos\Calc\obj\Debug\Calc.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\Calc\obj\Debug\Calc.exe
 C:\Users\user\source\repos\Calc\obj\Debug\Calc.pdb
+D:\httpsgithub.comKang-suyongCalc.git\bin\Debug\Calc.exe.config
+D:\httpsgithub.comKang-suyongCalc.git\bin\Debug\Calc.exe
+D:\httpsgithub.comKang-suyongCalc.git\bin\Debug\Calc.pdb
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.csprojAssemblyReference.cache
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.BackGround.resources
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.Properties.Resources.resources
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.csproj.GenerateResource.cache
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.csproj.CoreCompileInputs.cache
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.exe
+D:\httpsgithub.comKang-suyongCalc.git\obj\Debug\Calc.pdb
