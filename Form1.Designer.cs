@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Calculator = new System.Windows.Forms.GroupBox();
+            this.Equal_Button = new System.Windows.Forms.Button();
             this.ByProduction = new System.Windows.Forms.Label();
             this.labelCurrentOperation = new System.Windows.Forms.Label();
             this.Textbox_Result = new System.Windows.Forms.TextBox();
@@ -50,10 +52,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Timer = new System.Windows.Forms.GroupBox();
+            this.btn_stop = new System.Windows.Forms.Button();
+            this.btn_start = new System.Windows.Forms.Button();
             this.Byproduction2 = new System.Windows.Forms.Label();
-            this.Ptimer = new System.Windows.Forms.Panel();
             this.Pclac = new System.Windows.Forms.Panel();
-            this.Equal_Button = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_reset = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Calculator.SuspendLayout();
             this.Timer.SuspendLayout();
             this.Pclac.SuspendLayout();
@@ -85,7 +92,7 @@
             this.Calculator.Controls.Add(this.button2);
             this.Calculator.Controls.Add(this.button1);
             this.Calculator.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Calculator.Font = new System.Drawing.Font("나눔손글씨 펜", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Calculator.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Calculator.ForeColor = System.Drawing.Color.White;
             this.Calculator.Location = new System.Drawing.Point(0, 0);
             this.Calculator.Name = "Calculator";
@@ -95,14 +102,27 @@
             this.Calculator.Text = "Caculator";
             this.Calculator.Enter += new System.EventHandler(this.Calculator_Enter);
             // 
+            // Equal_Button
+            // 
+            this.Equal_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Equal_Button.ForeColor = System.Drawing.Color.Brown;
+            this.Equal_Button.Location = new System.Drawing.Point(353, 358);
+            this.Equal_Button.Name = "Equal_Button";
+            this.Equal_Button.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Equal_Button.Size = new System.Drawing.Size(60, 126);
+            this.Equal_Button.TabIndex = 20;
+            this.Equal_Button.Text = "=";
+            this.Equal_Button.UseVisualStyleBackColor = true;
+            this.Equal_Button.Click += new System.EventHandler(this.Equal_Click);
+            // 
             // ByProduction
             // 
             this.ByProduction.AutoSize = true;
-            this.ByProduction.Font = new System.Drawing.Font("휴먼아미체", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.ByProduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.ByProduction.ForeColor = System.Drawing.Color.White;
             this.ByProduction.Location = new System.Drawing.Point(399, 577);
             this.ByProduction.Name = "ByProduction";
-            this.ByProduction.Size = new System.Drawing.Size(101, 20);
+            this.ByProduction.Size = new System.Drawing.Size(126, 24);
             this.ByProduction.TabIndex = 5;
             this.ByProduction.Text = "made by 동준";
             // 
@@ -110,11 +130,11 @@
             // 
             this.labelCurrentOperation.AutoSize = true;
             this.labelCurrentOperation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelCurrentOperation.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.labelCurrentOperation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.labelCurrentOperation.ForeColor = System.Drawing.Color.White;
             this.labelCurrentOperation.Location = new System.Drawing.Point(85, 144);
             this.labelCurrentOperation.Name = "labelCurrentOperation";
-            this.labelCurrentOperation.Size = new System.Drawing.Size(0, 21);
+            this.labelCurrentOperation.Size = new System.Drawing.Size(0, 24);
             this.labelCurrentOperation.TabIndex = 19;
             this.labelCurrentOperation.Click += new System.EventHandler(this.Label1_Click);
             // 
@@ -132,7 +152,7 @@
             // 
             // button18
             // 
-            this.button18.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button18.ForeColor = System.Drawing.Color.Maroon;
             this.button18.Location = new System.Drawing.Point(353, 226);
             this.button18.Name = "button18";
@@ -144,7 +164,7 @@
             // 
             // button17
             // 
-            this.button17.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button17.ForeColor = System.Drawing.Color.DarkRed;
             this.button17.Location = new System.Drawing.Point(353, 292);
             this.button17.Name = "button17";
@@ -156,7 +176,7 @@
             // 
             // button16
             // 
-            this.button16.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button16.ForeColor = System.Drawing.Color.Black;
             this.button16.Location = new System.Drawing.Point(89, 424);
             this.button16.Name = "button16";
@@ -168,7 +188,7 @@
             // 
             // button15
             // 
-            this.button15.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button15.ForeColor = System.Drawing.Color.Black;
             this.button15.Location = new System.Drawing.Point(221, 424);
             this.button15.Name = "button15";
@@ -180,7 +200,7 @@
             // 
             // button14
             // 
-            this.button14.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button14.ForeColor = System.Drawing.Color.DimGray;
             this.button14.Location = new System.Drawing.Point(287, 358);
             this.button14.Name = "button14";
@@ -192,7 +212,7 @@
             // 
             // button13
             // 
-            this.button13.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button13.ForeColor = System.Drawing.Color.DimGray;
             this.button13.Location = new System.Drawing.Point(287, 226);
             this.button13.Name = "button13";
@@ -204,7 +224,7 @@
             // 
             // button12
             // 
-            this.button12.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button12.ForeColor = System.Drawing.Color.DimGray;
             this.button12.Location = new System.Drawing.Point(287, 424);
             this.button12.Name = "button12";
@@ -216,7 +236,7 @@
             // 
             // button11
             // 
-            this.button11.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button11.ForeColor = System.Drawing.Color.DimGray;
             this.button11.Location = new System.Drawing.Point(287, 292);
             this.button11.Name = "button11";
@@ -228,7 +248,7 @@
             // 
             // button10
             // 
-            this.button10.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button10.ForeColor = System.Drawing.Color.Black;
             this.button10.Location = new System.Drawing.Point(221, 358);
             this.button10.Name = "button10";
@@ -240,7 +260,7 @@
             // 
             // button8
             // 
-            this.button8.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button8.ForeColor = System.Drawing.Color.Black;
             this.button8.Location = new System.Drawing.Point(221, 226);
             this.button8.Name = "button8";
@@ -252,7 +272,7 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button7.ForeColor = System.Drawing.Color.Black;
             this.button7.Location = new System.Drawing.Point(89, 292);
             this.button7.Name = "button7";
@@ -264,7 +284,7 @@
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Location = new System.Drawing.Point(155, 292);
             this.button6.Name = "button6";
@@ -276,7 +296,7 @@
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(221, 292);
             this.button5.Name = "button5";
@@ -288,7 +308,7 @@
             // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(89, 358);
             this.button4.Name = "button4";
@@ -300,7 +320,7 @@
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(155, 358);
             this.button3.Name = "button3";
@@ -312,7 +332,7 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(155, 226);
             this.button2.Name = "button2";
@@ -324,7 +344,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(89, 226);
             this.button1.Name = "button1";
@@ -336,6 +356,13 @@
             // 
             // Timer
             // 
+            this.Timer.BackColor = System.Drawing.Color.Gray;
+            this.Timer.Controls.Add(this.label2);
+            this.Timer.Controls.Add(this.label3);
+            this.Timer.Controls.Add(this.label1);
+            this.Timer.Controls.Add(this.btn_reset);
+            this.Timer.Controls.Add(this.btn_stop);
+            this.Timer.Controls.Add(this.btn_start);
             this.Timer.Controls.Add(this.Byproduction2);
             this.Timer.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Timer.ForeColor = System.Drawing.Color.Black;
@@ -345,6 +372,26 @@
             this.Timer.TabIndex = 1;
             this.Timer.TabStop = false;
             this.Timer.Text = "타이머";
+            this.Timer.Enter += new System.EventHandler(this.Timer_Enter);
+            // 
+            // btn_stop
+            // 
+            this.btn_stop.Location = new System.Drawing.Point(212, 286);
+            this.btn_stop.Name = "btn_stop";
+            this.btn_stop.Size = new System.Drawing.Size(104, 36);
+            this.btn_stop.TabIndex = 9;
+            this.btn_stop.Text = "Stop";
+            this.btn_stop.UseVisualStyleBackColor = true;
+            // 
+            // btn_start
+            // 
+            this.btn_start.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btn_start.Location = new System.Drawing.Point(36, 282);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(104, 36);
+            this.btn_start.TabIndex = 8;
+            this.btn_start.Text = "Start";
+            this.btn_start.UseVisualStyleBackColor = true;
             // 
             // Byproduction2
             // 
@@ -356,13 +403,6 @@
             this.Byproduction2.TabIndex = 6;
             this.Byproduction2.Text = "made by 수용";
             // 
-            // Ptimer
-            // 
-            this.Ptimer.Location = new System.Drawing.Point(661, 36);
-            this.Ptimer.Name = "Ptimer";
-            this.Ptimer.Size = new System.Drawing.Size(503, 594);
-            this.Ptimer.TabIndex = 2;
-            // 
             // Pclac
             // 
             this.Pclac.Controls.Add(this.Calculator);
@@ -371,18 +411,48 @@
             this.Pclac.Size = new System.Drawing.Size(500, 600);
             this.Pclac.TabIndex = 3;
             // 
-            // Equal_Button
+            // timer1
             // 
-            this.Equal_Button.Font = new System.Drawing.Font("나눔고딕 ExtraBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Equal_Button.ForeColor = System.Drawing.Color.Brown;
-            this.Equal_Button.Location = new System.Drawing.Point(353, 358);
-            this.Equal_Button.Name = "Equal_Button";
-            this.Equal_Button.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Equal_Button.Size = new System.Drawing.Size(60, 126);
-            this.Equal_Button.TabIndex = 20;
-            this.Equal_Button.Text = "=";
-            this.Equal_Button.UseVisualStyleBackColor = true;
-            this.Equal_Button.Click += new System.EventHandler(this.Equal_Click);
+            this.timer1.Interval = 1;
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Location = new System.Drawing.Point(371, 282);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(104, 36);
+            this.btn_reset.TabIndex = 10;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(25, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 64);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "00 :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(327, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 64);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(176, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 64);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "00 :";
             // 
             // BackGround
             // 
@@ -392,7 +462,6 @@
             this.ClientSize = new System.Drawing.Size(1184, 861);
             this.Controls.Add(this.Pclac);
             this.Controls.Add(this.Timer);
-            this.Controls.Add(this.Ptimer);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("궁서", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -414,7 +483,6 @@
 
         private System.Windows.Forms.GroupBox Calculator;
         private System.Windows.Forms.GroupBox Timer;
-        private System.Windows.Forms.Panel Ptimer;
         private System.Windows.Forms.Panel Pclac;
         private System.Windows.Forms.Label Byproduction2;
         private System.Windows.Forms.Label ByProduction;
@@ -439,6 +507,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labelCurrentOperation;
         private System.Windows.Forms.Button Equal_Button;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btn_stop;
+        private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_reset;
     }
 }
 
