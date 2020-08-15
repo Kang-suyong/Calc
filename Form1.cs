@@ -25,6 +25,10 @@ namespace Calc
         public BackGround()
         {
             InitializeComponent();
+
+            btn_start.Click += btn_start_Click;
+            btn_stop.Click += btn_stop_click;
+            btn_reset.Click += btn_reset_click;
         }
             
         private void increaseSscond() // 초 증가
