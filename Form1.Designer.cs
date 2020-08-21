@@ -52,15 +52,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Timer = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_reset = new System.Windows.Forms.Button();
             this.btn_stop = new System.Windows.Forms.Button();
             this.btn_start = new System.Windows.Forms.Button();
             this.Byproduction2 = new System.Windows.Forms.Label();
             this.Pclac = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_reset = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.Calculator.SuspendLayout();
             this.Timer.SuspendLayout();
             this.Pclac.SuspendLayout();
@@ -184,7 +184,7 @@
             this.button16.TabIndex = 15;
             this.button16.Text = "0";
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button_click);
+            this.button16.Click += new System.EventHandler(this.btn_Click);
             // 
             // button15
             // 
@@ -196,7 +196,7 @@
             this.button15.TabIndex = 14;
             this.button15.Text = ".";
             this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button_click);
+            this.button15.Click += new System.EventHandler(this.btn_Click);
             // 
             // button14
             // 
@@ -218,7 +218,7 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(60, 60);
             this.button13.TabIndex = 12;
-            this.button13.Text = "%";
+            this.button13.Text = "/";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.operator_click);
             // 
@@ -256,7 +256,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "3";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button_click);
+            this.button10.Click += new System.EventHandler(this.btn_Click);
             // 
             // button8
             // 
@@ -268,7 +268,7 @@
             this.button8.TabIndex = 7;
             this.button8.Text = "9";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button_click);
+            this.button8.Click += new System.EventHandler(this.btn_Click);
             // 
             // button7
             // 
@@ -280,7 +280,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "4";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button_click);
+            this.button7.Click += new System.EventHandler(this.btn_Click);
             // 
             // button6
             // 
@@ -292,7 +292,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "5";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button_click);
+            this.button6.Click += new System.EventHandler(this.btn_Click);
             // 
             // button5
             // 
@@ -304,7 +304,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "6";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button_click);
+            this.button5.Click += new System.EventHandler(this.btn_Click);
             // 
             // button4
             // 
@@ -316,7 +316,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "1";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button_click);
+            this.button4.Click += new System.EventHandler(this.btn_Click);
             // 
             // button3
             // 
@@ -328,7 +328,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "2";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button_click);
+            this.button3.Click += new System.EventHandler(this.btn_Click);
             // 
             // button2
             // 
@@ -340,7 +340,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "8";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_click);
+            this.button2.Click += new System.EventHandler(this.btn_Click);
             // 
             // button1
             // 
@@ -352,7 +352,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "7";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button_click);
+            this.button1.Click += new System.EventHandler(this.btn_Click);
             // 
             // Timer
             // 
@@ -374,9 +374,49 @@
             this.Timer.Text = "타이머";
             this.Timer.Enter += new System.EventHandler(this.Timer_Enter);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(176, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 64);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "00 :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(327, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 64);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "00";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(25, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 64);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "00 :";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Location = new System.Drawing.Point(371, 282);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(104, 36);
+            this.btn_reset.TabIndex = 10;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            // 
             // btn_stop
             // 
-            this.btn_stop.Location = new System.Drawing.Point(212, 286);
+            this.btn_stop.Location = new System.Drawing.Point(204, 282);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(104, 36);
             this.btn_stop.TabIndex = 9;
@@ -414,45 +454,6 @@
             // timer1
             // 
             this.timer1.Interval = 1;
-            // 
-            // btn_reset
-            // 
-            this.btn_reset.Location = new System.Drawing.Point(371, 282);
-            this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(104, 36);
-            this.btn_reset.TabIndex = 10;
-            this.btn_reset.Text = "Reset";
-            this.btn_reset.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(25, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 64);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "00 :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(327, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 64);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("궁서", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(176, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 64);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "00 :";
             // 
             // BackGround
             // 

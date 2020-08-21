@@ -18,93 +18,112 @@ namespace Calc
         Double resultValue = 0;
         String operationPerformed = "";
         bool isoperationPerformed = false;
-        public int hours = 0;
-        public int miniutes = 0;
-        public int seconds = 0;
-        public int timeSet = 0;
+        public int hour = 0;
+        public int min = 0;
+        public int sec = 0;
+        bool timeSet = false; //작동 여부
+        bool pause = false; //정지 상태 여부
 
+
+        //백그라운드 이벤트리스너
         public BackGround()
         {
             InitializeComponent();
 
-            btn_start.Click += btn_start_Click;
+            btn_start.Click += btn_start_click;
             btn_stop.Click += btn_stop_click;
             btn_reset.Click += btn_reset_click;
         }
-            
-        private void increaseSscond() // 초 증가
-        {
-            if(seconds > 59)
-            {
-                seconds = 0;
-                increaseMinute();
-            }
-            else
-            {
-                seconds++;
-            }
-        }
-        private void increaseMinute()
-        {
-            if (miniutes > 59)
-            {
-                miniutes = 0;
-                increaseHour();
 
-            }
-            else
-                miniutes++;
-        }
-        private void increaseHour()
-        {
-            hours++;
-        }
-
-        public void stopwatch_tick(object sender, EventArgs e)
+        //스탑워치 초당 간격 설정
+        public void stopWatch_tick(object sender, EventArgs e)
         {
             ShowTime();
-            increaseSscond();
+            incSec();
         }
 
-        public void btn_start_Click(object sender, EventArgs e)
+        //시작 버튼을 누를 시
+        private void btn_start_click(object sender, EventArgs e)
         {
-            if(timeSet == 0)
+            if (!timeSet)
             {
                 timer1.Enabled = true;
                 timer1.Interval = 1000;
-                timer1.Tick += stopwatch_tick;
-                timeSet = 1;
+                timer1.Tick += stopWatch_tick;
+                timeSet = true;
+            }
+            else if (pause)
+            {
+                timer1.Enabled = true;
+                pause = false;
             }
         }
 
-        public void btn_stop_click (object sender, EventArgs e)
+        //정지 버튼을 누를 시
+        private void btn_stop_click(object sender, EventArgs e)
         {
-           if(timeSet == 1)
+            if (timeSet)
             {
                 timer1.Enabled = false;
-                timeSet = 0;
-            } 
-        }
-
-        public void btn_reset_click(object sender , EventArgs e)
-        {
-            hours = 0;
-            miniutes = 0;
-            seconds = 0;
-
-            ShowTime();
-
-            if (timeSet == 1)
-            {
-                timeSet = 0;
+                pause = true;
             }
         }
-            
+
+        //초기화 버튼을 누를 시
+        private void btn_reset_click(object sender, EventArgs e)
+        {
+            hour = 0;
+            min = 0;
+            sec = 0;
+
+            ShowTime();
+            if (timeSet)
+            {
+                timeSet = false;
+                pause = false;
+            }
+        }
+
+        //스탑워치 화면 초기화
         private void ShowTime()
         {
-            label1.Text = hours.ToString("00");
-            label2.Text = miniutes.ToString("00");
-            label3.Text = seconds.ToString("00");
+            label1.Text = hour.ToString("00");
+            label2.Text = min.ToString("00");
+            label3.Text = sec.ToString("00");
+        }
+
+        //시간 증가
+        private void incHour()
+        {
+            hour++;
+        }
+
+        //분 증가
+        private void incMin()
+        {
+            if (min > 59)
+            {
+                min = 0;
+                incHour();
+            }
+            else
+            {
+                min++;
+            }
+        }
+
+        //초 증가
+        private void incSec()
+        {
+            if (sec > 59)
+            {
+                sec = 0;
+                incMin();
+            }
+            else
+            {
+                sec++;
+            }
         }
         //
 
@@ -128,7 +147,7 @@ namespace Calc
 
         }
 
-        private void button_click(object sender, EventArgs e)
+        private void btn_Click(object sender, EventArgs e)
         {
             if ((Textbox_Result.Text == "0") || (isoperationPerformed))
                 Textbox_Result.Clear();
@@ -136,8 +155,10 @@ namespace Calc
             Button button = (Button)sender;
             if (Textbox_Result.Text == ".")
             {
-                if (!Textbox_Result.Text.Contains("."))
+                if(!(button.Text == "."))
+                {
                     Textbox_Result.Text = Textbox_Result.Text + button.Text;
+                } 
             }
             else
                 Textbox_Result.Text = Textbox_Result.Text + button.Text;
@@ -146,9 +167,8 @@ namespace Calc
         private void operator_click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (resultValue != 0)
+            if ((resultValue != 0))
             {
-                Equal_Button.PerformClick();
                 operationPerformed = button.Text;
                 labelCurrentOperation.Text = resultValue + " " + operationPerformed;
                 isoperationPerformed = true;
@@ -165,6 +185,7 @@ namespace Calc
         private void Clear_Button(object sender, EventArgs e)
         {
             Textbox_Result.Text = "0";
+            labelCurrentOperation.Text = "";
             resultValue = 0;
         }
 
@@ -185,7 +206,7 @@ namespace Calc
                 case "X":
                     Textbox_Result.Text = (resultValue * Double.Parse(Textbox_Result.Text)).ToString();
                     break;
-                case "%":
+                case "/":
                     Textbox_Result.Text = (resultValue / Double.Parse(Textbox_Result.Text)).ToString();
                     break;
                 default:
@@ -193,9 +214,15 @@ namespace Calc
             }
             resultValue = Double.Parse(Textbox_Result.Text);
             labelCurrentOperation.Text = "";
+            isoperationPerformed = false;
         }
 
         private void Timer_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }
