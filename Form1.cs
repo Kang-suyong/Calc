@@ -21,6 +21,7 @@ namespace Calc
         public int hours = 0;
         public int miniutes = 0;
         public int seconds = 0;
+        public int timeSet = 0;
 
         public BackGround()
         {
@@ -33,7 +34,7 @@ namespace Calc
             
         private void increaseSscond() // 초 증가
         {
-            if(seconds >59)
+            if(seconds > 59)
             {
                 seconds = 0;
                 increaseMinute();
@@ -67,14 +68,22 @@ namespace Calc
 
         public void btn_start_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            timer1.Tick += stopwatch_tick;
+            if(timeSet == 0)
+            {
+                timer1.Enabled = true;
+                timer1.Interval = 1000;
+                timer1.Tick += stopwatch_tick;
+                timeSet = 1;
+            }
         }
 
         public void btn_stop_click (object sender, EventArgs e)
         {
-            timer1.Enabled = false;
+           if(timeSet == 1)
+            {
+                timer1.Enabled = false;
+                timeSet = 0;
+            } 
         }
 
         public void btn_reset_click(object sender , EventArgs e)
@@ -84,6 +93,11 @@ namespace Calc
             seconds = 0;
 
             ShowTime();
+
+            if (timeSet == 1)
+            {
+                timeSet = 0;
+            }
         }
             
         private void ShowTime()
@@ -92,7 +106,7 @@ namespace Calc
             label2.Text = miniutes.ToString("00");
             label3.Text = seconds.ToString("00");
         }
-        
+        //
 
         private void BackGround_Load(object sender, EventArgs e)
         {
